@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorteio Loteria</title>
+</head>
+<body>
+    <h1>Loteria do azar</h1>
+
+<script>
+    let count = 1; 
+    let numeros_do_usuario = [];
+    let numero_gerado = [];
+
+    while(true){
+        console.log(numeros_do_usuario.length);
+        let numero_igual = false;
+        let numero_de_entrada;
+
+        if(count > 6) break;// condicao para sair do loop
+
+        numero_de_entrada = prompt(`Digite ${count}º numero de 1 a 60 sem repetir`);// entrada de dados
+
+        if(numero_de_entrada === "exit"){ // se digitado exit prompt sera fecahdo
+            console.log("Volte sempre!");
+            break;
+        }
+        // se o vetor numeros do usuario estiver vazio. Entrara no condicional verificando se numero esta entre 1 a 60
+        if(numero_de_entrada > 0 && numero_de_entrada <= 60 && numeros_do_usuario.length == 0){
+            numeros_do_usuario.push(parseInt(numero_de_entrada));
+            count++;//caso cnotrario se estivar com algum elemento
+        }else if(numero_de_entrada > 0 && numero_de_entrada <= 60 && numeros_do_usuario.length > 0){// verifica se esta entre 1 e 60
+            for(let i of numeros_do_usuario){
+                if(i == parseInt(numero_de_entrada)) numero_igual = true;//verifica se a igualdade de elementos
+            }
+            if(numero_igual === false){// se nao houver igualdade numero e inserido no vetor
+                numeros_do_usuario.push(parseInt(numero_de_entrada));
+                count++;
+            }else{ alert("Não pode inserir numero repetido!"); }
+        }else{ alert("Digite o numero de 1 a 60!"); }
+    }
+
+    console.log(numeros_do_usuario.sort());
+</script>
+</body>
+</html>
