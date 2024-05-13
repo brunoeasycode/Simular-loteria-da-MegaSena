@@ -41,7 +41,34 @@
         }else{ alert("Digite o numero de 1 a 60!"); }
     }
 
-    console.log(numeros_do_usuario.sort());
+    count = 1;
+    //geracao dos numeors aleatorios
+    while(true){
+        let numero_igual = false;
+        if(count > 6) break;// condicao para sair do loop
+
+        let numero_novo = (Math.random()*60).toFixed();
+        console.log(numero_novo);
+
+        if(numero_gerado.length == 0){
+            numero_gerado.push(numero_novo);
+            count ++;
+        }else{
+            for(let i of numero_gerado){
+                if(i === numero_novo){ numero_igual = true; }
+            }
+            if(numero_igual === false){
+                numero_gerado.push(numero_novo);
+                count++;
+            }
+        }
+
+        
+        
+    }
+
+    alert("Numeros inseridos pelo usuario: "+numeros_do_usuario.sort()+"\nNumeros gerados aleatorios: "+numero_gerado.sort());
+
 </script>
 </body>
 </html>
