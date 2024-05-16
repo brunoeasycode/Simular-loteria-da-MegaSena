@@ -21,4 +21,4 @@ programa deverá mostrar ao usuário que não ganhou nada.
 Ao final, o programa deverá mostrar ao usuário os números
 inseridos e os números sorteados
 
-Colaboradores principais: Mateus Munis de Freitas;
+Colaboradores principais: Mateus Munis de Freitas; Rafael Bruno Nogueira Filho
