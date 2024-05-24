@@ -13,6 +13,7 @@
     let numeros_do_usuario = [];
     let numero_gerado = [];
     let numeros_acertados = 0;
+    let messagem_final = "Infelizmente voçê não consegiu ganhar!"
     let min = 0;
     let max = 0;
 
@@ -42,7 +43,7 @@
                 count++;
             }else{ alert("Não pode inserir numero repetido!"); }
         }else{ alert("Digite o numero de 1 a 60!"); }
-    }
+    }// Fim do loop de entrada de dados
 
     count = 1;
     //geracao dos numeors aleatorios
@@ -64,7 +65,8 @@
                 count++;
             }
         } 
-    }
+    }// Fim da geracao dos numeors aleatorios
+
     //ordenacao crescente dos numeros do usuario
     for(let i=0; i< numeros_do_usuario.length - 1; i++){
         for(let x=i+1; x<=numeros_do_usuario.length; x++){
@@ -74,7 +76,8 @@
                 numeros_do_usuario[i] = aux;
             }
         }
-    }
+    }// Fim da ordenacao crescente dos numeros do usuario
+
     //ordenacao crescente dos numeros gerados
     for(let i=0; i < numero_gerado.length - 1; i++){
         for(let x=i+1; x<=numero_gerado.length; x++){
@@ -84,8 +87,8 @@
                 numero_gerado[i] = aux;
             }
         }
-    }
-
+    }// Fim da ordenacao crescente dos numeros gerados
+    numero_gerado = [1,2,3,4,5,6]
     // Busca binaria dos numeros acertados
     for(let i=0; i<numeros_do_usuario.length; i++){
         max = numeros_do_usuario.length - 1;
@@ -94,20 +97,33 @@
             let meio = parseInt((max + min)/2);
 
             if(numeros_do_usuario[i] == numero_gerado[meio]){
-                numeros_acertados++;
+                numeros_acertados = numeros_acertados + 1;
             }
             if(numeros_do_usuario[i] >= numero_gerado[meio]){
                 min = meio + 1; 
             }else{
                 max = meio - 1;
             }
-
         }
-        
-    }
+    }// Fim da busca binaria dos numeros acertados
 
+    // verificar o numero de acertos e exibir messagem!
+    switch(numeros_acertados){
+        case 6:
+            messagem_final = "Voçê ganhou na SENA";
+            console.log("entrou")
+            break;
+        case 5:
+            messagem_final = "Voçê ganhou na QuINA";
+            break;
+        case 4:
+            messagem_final = "Voçê ganhou na QUADRA";
+            break;
+        default: 
+            break;
+    }// Fim da verificacao!
 
-    alert("Numeros inseridos pelo usuario: "+numeros_do_usuario+"\nNumeros gerados aleatorios:      "+numero_gerado+"\nNumeros acertados: "+numeros_acertados);
+    alert("Numeros inseridos pelo usuario: "+numeros_do_usuario+"\nNumeros gerados aleatorios:      "+numero_gerado+"\nNumeros acertados: "+numeros_acertados+"\n\n       "+messagem_final.toUpperCase());
 </script>
 </body>
 </html>
